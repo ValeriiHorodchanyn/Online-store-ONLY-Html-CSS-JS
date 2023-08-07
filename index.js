@@ -7,10 +7,16 @@ const mainContent = document.querySelector('.main-content')
 const links = document.querySelector('.links')
 const closeBtn = document.querySelector('.close-btn')
 const logoWhite = document.querySelector('.logo-fox-white')
+const cart = document.querySelector('.cart')
 
 const hamburgerPointsBtn = document.querySelector('.button-hamburger-points')
 hamburgerPointsBtn.addEventListener('click', showMenu)
 closeBtn.addEventListener('click', hideMenu)
+cart.addEventListener('click', (event) => {
+    if (event.target.className === 'cart') {
+        cartBlock.style.display = 'none'
+    }
+})
 
 function showMenu() {
     header.classList.remove('header')
@@ -27,7 +33,7 @@ function showMenu() {
     hamburgerPoints.classList.add('hamburger-points-menu')
     icons.classList.remove('icons')
     icons.classList.add('icons-menu')
-    if (document.location.pathname.includes('our-history') || document.location.pathname.includes('all-ites')) {
+    if (document.location.pathname.includes('our-history') || document.location.pathname.includes('all-items')) {
         logoWhite.setAttribute('src', './img/logo-foxminded-white.png')
     }
 }
@@ -54,7 +60,7 @@ function hideMenu() {
     hamburgerPointsMenu.classList.add('hamburger-points')
     iconsMenu.classList.remove('icons-menu')
     iconsMenu.classList.add('icons')
-    if (document.location.pathname.includes('our-history') || document.location.pathname.includes('all-ites')) {
+    if (document.location.pathname.includes('our-history') || document.location.pathname.includes('all-items')) {
         logoWhite.setAttribute('src', `img/logo-new.png`)
     }
 }
@@ -78,6 +84,9 @@ productPlace.addEventListener('click', (event) => {
 })
 
 function showProductsCart() {
+    if (JSON.parse(localStorage.getItem("product")) === null) {
+        localStorage.setItem("product", JSON.stringify([]));
+    }
     const array = JSON.parse(localStorage.getItem("product"))
     productPlace.innerHTML = ''
     for (let i = 0; i < array.length; i++) {
@@ -179,6 +188,7 @@ function cartControls(event) {
         arrayProduct.splice(index, 1);
         localStorage.setItem("product", JSON.stringify(arrayProduct));
         showProductsCart()
+        quantityProductsRefresh()
     }
     if (event.target.classList[0] === 'controls-quantity-minus') {
         const receivedId = event.target.parentElement.parentElement.parentElement.getAttribute('data-id')
@@ -189,11 +199,13 @@ function cartControls(event) {
                 arrayProduct.splice(index, 1);
                 localStorage.setItem("product", JSON.stringify(arrayProduct));
                 showProductsCart()
+                quantityProductsRefresh()
             }
             else if (arrayProduct[i].id === receivedId && arrayProduct[i].quantity > 1) {
                 arrayProduct[i].quantity--
                 localStorage.setItem("product", JSON.stringify(arrayProduct));
                 showProductsCart()
+                quantityProductsRefresh()
             }
         }
     }
@@ -205,6 +217,7 @@ function cartControls(event) {
                 arrayProduct[i].quantity++
                 localStorage.setItem("product", JSON.stringify(arrayProduct));
                 showProductsCart()
+                quantityProductsRefresh()
             }
         }
     }
@@ -225,6 +238,28 @@ function cartTotal() {
 }
 cartTotal()
 
+const quantityProducts = document.querySelector('.quantity-products')
+const quantityProductsBlock = document.querySelector('.quantity-products-block')
+
+
+function quantityProductsRefresh() {
+    const arrayProduct = JSON.parse(localStorage.getItem("product"))
+    // quantityProductsBlock.style.display = 'block'
+    let sumQuantityProducts = 0
+    arrayProduct.forEach((product) => {
+        sumQuantityProducts += product.quantity
+    })
+    quantityProducts.innerHTML = `${sumQuantityProducts}`
+    if (sumQuantityProducts) {
+        quantityProductsBlock.style.display = 'block'
+    } else {
+        quantityProductsBlock.style.display = 'none'
+    }
+}
+
+
+quantityProductsRefresh()
+
 window.addEventListener("load", () => {
     setTimeout(() => {
         const body = document.body,
@@ -232,5 +267,7 @@ window.addEventListener("load", () => {
         const height = Math.max(body.scrollHeight, body.offsetHeight,
             html.clientHeight, html.scrollHeight, html.offsetHeight);
         cartBlock.style.height = `${height}px`
-    }, 100);
+    }, 500);
 });
+
+export { quantityProductsRefresh };

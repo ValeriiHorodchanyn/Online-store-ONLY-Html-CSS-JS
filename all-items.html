@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our history</title>
+    <title>All Items</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="history.css">
+    <link rel="stylesheet" href="items.css">
 </head>
 
 <body>
@@ -24,85 +24,62 @@
                     <nav class="links">
                         <a class="link shop" href="./all-items.html">SHOP</a>
                         <a class="link mainpage" href="./index.html">MAINPAGE</a>
-                        <a class="link history-color" href="./our-history.html">OUR HISTORY</a>
-                        <a class="link all-items" href="./all-items.html">ALL ITEMS</a>
+                        <a class="link shop" href="./our-history.html">OUR HISTORY</a>
+                        <a class="link all-items-color" href="./all-items.html">ALL ITEMS</a>
                         <div class="close-btn"></div>
                     </nav>
                     <figure class="icons">
                         <img class="icon-header cart-icon-header" src="img/cart-icon-black.png" alt="cart">
                         <img class="icon-header fox-icon-header" src="img/fox-icon-black.png" alt="fox">
                         <div class="quantity-products-block"> <p class="quantity-products"></p></div>
-                     </figure>
+                    </figure>
                 </div>
             </div>
         </main>
     </header>
+
     <section class="history-first-section">
         <main class="content">
             <div class="text-block-first-section">
-                <p class="way-description">Home/About us</p>
-                <h1 class="page-header">Our history</h1>
+                <p class="way-description">Home/All items</p>
+                <h1 class="page-header">All Items</h1>
             </div>
         </main>
     </section>
-    <section class="history-second-section">
+
+    <section class="search-menu-section">
         <main class="content">
-            <div class="history-second-section-container">
-                <figure class="first-text-img-block">
-                    <article class="text-field">
-                        <h6 class="header-text-field">
-                            Lorem ipsum dolor sit amet ipsum
-                        </h6>
-                        <p class="paragraph-text-field">
-                            Lorem ipsum dolor sit amet consectetur. Amet aliquam non congue
-                            vivamus. Viverra consequat donec fringilla dolor phasellus nibh ultricies purus. Id netus
-                            semper feugiat elit turpis convallis platea. Aliquam semper in amet vitae sit augue non. Sit
-                            arcu phasellus morbi diam nullam. Proin lorem nunc ante aliquam mauris nunc. Egestas leo
-                            orci pellentesque cras. Vitae id enim amet dolor tellus dignissim id mattis.
-                        </p>
-                        <p class="paragraph-text-field">
-                            Augue dis nunc eu tempus habitant eu.Lorem ipsum dolor sit amet consectetur. Amet aliquam
-                            non congue vivamus. Viverra consequat donec fringilla dolor phasellus nibh ultricies purus.
-                            Id netus semper feugiat elit turpis convallis platea. Aliquam semper in amet vitae sit augue
-                            non. Sit arcu phasellus morbi diam nullam. Proin lorem nunc ante aliquam mauris nunc.
-                            Egestas leo orci pellentesque cras. Vitae id enim amet dolor tellus dignissim id mattis.
-                            Augue dis nunc eu tempus habitant eu.
-                        </p>
-                    </article>
-                    <figure class="img-field">
-                        <img class="img-field-img" src="img/fox-img-1.png" alt="foxes">
-                    </figure>
-                </figure>
-                <figure class="second-text-img-block">
-                    <div class="text-field">
-                        <h6 class="header-text-field">
-                            Lorem ipsum dolor sit amet ipsum
-                        </h6>
-                        <p class="paragraph-text-field">
-                            Lorem ipsum dolor sit amet consectetur. Amet aliquam non congue
-                            vivamus. Viverra consequat donec fringilla dolor phasellus nibh ultricies purus. Id netus
-                            semper feugiat elit turpis convallis platea. Aliquam semper in amet vitae sit augue non. Sit
-                            arcu phasellus morbi diam nullam. Proin lorem nunc ante aliquam mauris nunc. Egestas leo
-                            orci pellentesque cras. Vitae id enim amet dolor tellus dignissim id mattis.
-                        </p>
-                        <p class="paragraph-text-field">
-                            Augue dis nunc eu tempus habitant eu.Lorem ipsum dolor sit amet consectetur. Amet aliquam
-                            non congue vivamus. Viverra consequat donec fringilla dolor phasellus nibh ultricies purus.
-                            Id netus semper feugiat elit turpis convallis platea. Aliquam semper in amet vitae sit augue
-                            non. Sit arcu phasellus morbi diam nullam. Proin lorem nunc ante aliquam mauris nunc.
-                            Egestas leo orci pellentesque cras. Vitae id enim amet dolor tellus dignissim id mattis.
-                            Augue dis nunc eu tempus habitant eu.
-                        </p>
+            <div class="menu-ites-box">
+                <div class="menu-flexbox">
+                    <div class="search-block">
+                        <input type="text" class="input-search" placeholder="Search">
+                        <button class="button-search"><img class="button-search-img" src="img/search-btn.png"
+                                alt="search-btn"></button>
                     </div>
-                    <figure class="img-field">
-                        <img class="img-field-img" src="img/fox-img-2.png" alt="foxes">
-                    </figure>
-                </figure>
+                    <div class="type-block">
+                        <div class="type-block-textblock"><span class="type-block-text">Topic</span></div>
+                        <div class="type-buttons">
+                            <button class="type-button-checked type-all">All</button>
+                            <button class="type-button type-forest">Forest</button>
+                            <button class="type-button type-foxkid">Fox Kids</button>
+                            <button class="type-button type-home">Home</button>
+                            <button class="type-button type-other">Other</button>
+                        </div>
+                    </div>
+                    <div class="range-block">
+                        <div class="range-block-textblock"><span class="range-block-text">Price</span></div>
+                        <input type="range" min="0" max="1000" value="0" step="5" class="input-range">
+                        <p class="range-value">Value: $0</p>
+                    </div>
+                </div>
+                <div class="ites-flexbox">
+                </div>
             </div>
         </main>
     </section>
+
     <footer class="footer">
-        <main class="content">
+        <div class="content">
             <div class="footer-container">
                 <div class="footer-coluumn footer-contact">
                     <div class="footer-logo">
@@ -164,7 +141,7 @@
                     <li class="list-footer-link"><a class="footer-link" href="#">Lorem insup</a></li>
                 </ul>
             </div>
-        </main>
+        </div>
         <div class="protection">
             <p class="protection-paragraph">Storelogo, 2023 All rights reserved</p>
         </div>
@@ -180,13 +157,15 @@
             </div>
             <div class="cart-total">
                 <h2 class="cart-total-header">Total:</h2>
-                <h2 class="cart-total-quantity"></h2>
+                <h2 class="cart-total-quantity">$190.80</h2>
                 <button class="cart-total-btn">Checkout</button>
             </div>
         </section>
     </aside>
 
     <script type="module" src="index.js"></script>
+    <script type="module" src="all-items.js"></script>
+    <script type="module" src="constants.js"></script>
 </body>
 
 </html>

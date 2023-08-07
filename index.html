@@ -10,7 +10,7 @@
 
 <body>
     <header class="header">
-        <div class="content">
+        <main class="content">
             <div class="main-content">
                 <div class="header-container">
                     <div class="hamburger-points">
@@ -20,20 +20,24 @@
                     <div class="logo">
                         <img class="logo-fox-white" src="img/logo-foxminded-white.png" alt="logo-foxminded-white">
                     </div>
-                    <div class="links">
-                        <a class="link shop" href="./all-ites.html">SHOP</a>
+                    <nav class="links">
+                        <a class="link shop" href="./all-items.html">SHOP</a>
                         <a class="link mainpage-color" href="./index.html">MAINPAGE</a>
                         <a class="link shop" href="./our-history.html">OUR HISTORY</a>
-                        <a class="link all-items" href="./all-ites.html">ALL ITEMS</a>
+                        <a class="link all-items" href="./all-items.html">ALL ITEMS</a>
                         <div class="close-btn"></div>
-                    </div>
-                    <div class="icons">
+                    </nav>
+                    <figure class="icons">
                         <img class="icon-header cart-icon-header" src="img/cart-icon.png" alt="cart">
                         <img class="icon-header fox-icon-header" src="img/fox-icon.png" alt="fox">
-                    </div>
+                        <div class="quantity-products-block">
+                            <p class="quantity-products"></p>
+                        </div>
+
+                    </figure>
                 </div>
             </div>
-        </div>
+        </main>
     </header>
     <section class="main-section">
         <img class="main-img" src="img/main-fox.png" alt="fox">
@@ -42,7 +46,7 @@
             nostrum soluta facilis dolorem unde rerum sint.</p>
     </section>
     <section class="second-section">
-        <div class="content">
+        <main class="content">
             <div class="container-second">
                 <div class="tiles">
                     <div class="white-chicken">
@@ -88,12 +92,13 @@
                         </div>
                     </div>
                 </div>
-                <button class="all-foxes-btn"><a class="all-foxes-btn-link" href="./all-ites.html">All foxes</a></button>
+                <button class="all-foxes-btn"><a class="all-foxes-btn-link" href="all-items.html">All
+                        foxes</a></button>
             </div>
-        </div>
+        </main>
     </section>
     <section class="third-section">
-        <div class="content">
+        <main class="content">
             <div class="third-section-container">
                 <div class="text-block">
                     <h2 class="third-section-header">Join our newsletter</h2>
@@ -108,10 +113,10 @@
                     <span class="message-text">Message</span>
                 </div>
             </div>
-        </div>
+        </main>
     </section>
     <footer class="footer">
-        <div class="content">
+        <main class="content">
             <div class="footer-container">
                 <div class="footer-coluumn footer-contact">
                     <div class="footer-logo">
@@ -126,49 +131,61 @@
                         </p>
                     </div>
 
-                    <div class="footer-icons">
-                        <img class="footer-icon" src="img/logo-instagram.png" alt="inst">
-                        <img class="footer-icon" src="img/logo-telegram.png" alt="telegram">
-                        <img class="footer-icon" src="img/logo-twitter.png" alt="twitter">
-                    </div>
+                    <ul class="footer-icons">
+                        <li class="list-item"><img class="footer-icon" src="img/logo-instagram.png" alt="inst"></li>
+                        <li class="list-item"><img class="footer-icon" src="img/logo-telegram.png" alt="telegram"></li>
+                        <li class="list-item"><img class="footer-icon" src="img/logo-twitter.png" alt="twitter"></li>
+                    </ul>
                 </div>
-                <div class="footer-coluumn link-shop">
-                    <p class="footer-links footer-link-header">Shop</p>
-                    <a class="footer-link" href="#">Lorem insup</a>
-                    <a class="footer-link" href="#">Lorem insup</a>
-                </div>
-                <div class="footer-coluumn link-products">
-                    <p class="footer-links footer-link-header">Products</p>
-                    <a class="footer-link" href="#">Lorem insup</a>
-                    <a class="footer-link" href="#">Lorem insup</a>
-                </div>
-                <div class="footer-coluumn link-collection">
-                    <p class="footer-links footer-link-header">Collection</p>
-                    <a class="footer-link" href="#">Lorem insup</a>
-                    <a class="footer-link" href="#">Lorem insup</a>
-                    <a class="footer-link" href="#">Lorem insup</a>
-                    <a class="footer-link" href="#">Lorem insup</a>
-                    <a class="footer-link" href="#">Lorem insup</a>
-                </div>
-                <div class="footer-coluumn link-weekly-updates">
-                    <p class="footer-links footer-link-header">Weekly updates</p>
-                    <a class="footer-link" href="#">Lorem insup</a>
-                    <a class="footer-link" href="#">Lorem insup</a>
-                    <a class="footer-link" href="#">Lorem insup</a>
-                </div>
-                <div class="footer-coluumn link-about-us">
-                    <p class="footer-links footer-link-header">About us</p>
-                    <a class="footer-link" href="#">Lorem insup</a>
-                    <a class="footer-link" href="#">Lorem insup</a>
-                    <a class="footer-link" href="#">Lorem insup</a>
-                </div>
+                <ul class="footer-coluumn link-shop">
+                    <li class="list-footer-link">
+                        <p class="footer-links footer-link-header">Shop</p>
+                    </li>
+                    <li class="list-footer-link"><a class="footer-link" href="#">Lorem insup</a></li>
+                    <li class="list-footer-link"><a class="footer-link" href="#">Lorem insup</a></li>
+                </ul>
+                <ul class="footer-coluumn link-products">
+                    <li class="list-footer-link">
+                        <p class="footer-links footer-link-header">Products</p>
+                    </li>
+                    <li class="list-footer-link"><a class="footer-link" href="#">Lorem insup</a></li>
+                    <li class="list-footer-link"><a class="footer-link" href="#">Lorem insup</a></li>
+                </ul>
+                <ul class="footer-coluumn link-collection">
+                    <li class="list-footer-link">
+                        <p class="footer-links footer-link-header">Collection</p>
+                    </li>
+                    <li class="list-footer-link"><a class="footer-link" href="#">Lorem insup</a></li>
+                    <li class="list-footer-link"><a class="footer-link" href="#">Lorem insup</a></li>
+                    <li class="list-footer-link"><a class="footer-link" href="#">Lorem insup</a></li>
+                    <li class="list-footer-link"><a class="footer-link" href="#">Lorem insup</a></li>
+                    <li class="list-footer-link"><a class="footer-link" href="#">Lorem insup</a></li>
+                </ul>
+                <ul class="footer-coluumn link-weekly-updates">
+                    <li class="list-footer-link">
+                        <p class="footer-links footer-link-header">Weekly updates</p>
+                    </li>
+                    <li class="list-footer-link"><a class="footer-link" href="#">Lorem insup</a></li>
+                    <li class="list-footer-link"><a class="footer-link" href="#">Lorem insup</a></li>
+                    <li class="list-footer-link"><a class="footer-link" href="#">Lorem insup</a></li>
+                </ul>
+                <ul class="footer-coluumn link-about-us">
+                    <li class="list-footer-link">
+                        <p class="footer-links footer-link-header">About us</p>
+                    </li>
+                    <li class="list-footer-link"><a class="footer-link" href="#">Lorem insup</a></li>
+                    <li class="list-footer-link"><a class="footer-link" href="#">Lorem insup</a></li>
+                    <li class="list-footer-link"><a class="footer-link" href="#">Lorem insup</a></li>
+                </ul>
             </div>
+        </main>
+        <div class="protection">
+            <p class="protection-paragraph">Storelogo, 2023 All rights reserved</p>
         </div>
-        <div class="protection"><p class="protection-paragraph">Storelogo, 2023 All rights reserved</p></div>
     </footer>
 
-    <div class="cart">
-        <div class="cart-content">
+    <aside class="cart">
+        <section class="cart-content">
             <button class="cart-content-close"><img class="cart-content-close-img" src="img/grey-cross.png"
                     alt="grey cross"></button>
             <p class="cart-box">box</p>
@@ -180,10 +197,10 @@
                 <h2 class="cart-total-quantity"></h2>
                 <button class="cart-total-btn">Checkout</button>
             </div>
-        </div>
-    </div>
+        </section>
+    </aside>
 
-    <script src="index.js"></script>
+    <script type="module" src="index.js"></script>
     <script src="main.js"></script>
 </body>
 

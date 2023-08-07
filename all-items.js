@@ -1,27 +1,26 @@
+import {quantityProductsRefresh} from './index.js';
 const inputRange = document.querySelector('.input-range')
 const rangeValue = document.querySelector('.range-value')
-const itesFlexbox = document.querySelector('.ites-flexbox')
+const itemsFlexBox = document.querySelector('.ites-flexbox')
 const buttons = document.querySelector('.type-buttons')
 const inputSearch = document.querySelector('.input-search')
 const buttonSearch = document.querySelector('.button-search')
 
 getAllProducts()
-
+quantityProductsRefresh()
 // Filter products by name
 inputSearch.addEventListener('keydown', (event) => {
     if (event.key === 'Enter') {
         filterProductsByName(inputSearch.value)
-        inputSearch.value = ''
     }
 })
 buttonSearch.addEventListener('click', () => {
     filterProductsByName(inputSearch.value)
-    inputSearch.value = ''
 })
 async function filterProductsByName(value) {
     let data = await (await fetch('./json/products.json')).json();
     const uniqueArray = data.filter(i => i.name.toLowerCase().includes(value.toLowerCase()))
-    itesFlexbox.innerHTML = ''
+    itemsFlexBox.innerHTML = ''
     showProducts(uniqueArray)
 
 }
@@ -35,31 +34,33 @@ buttons.addEventListener('click', (elem) => {
 async function filterProductsByGroup(value) {
     let data = await (await fetch('./json/products.json')).json();
     if (value === 'all') {
-        itesFlexbox.innerHTML = ''
+        itemsFlexBox.innerHTML = ''
         showProducts(data)
     }
     else if (value === 'forest' || value === 'foxkid' || value === 'home') {
         const uniqueArray = data.filter(i => i.type === `${value[0].toUpperCase() + value.slice(1)}`)
-        itesFlexbox.innerHTML = ''
+        itemsFlexBox.innerHTML = ''
         showProducts(uniqueArray)
     }
     else {
         const uniqueArray = data.filter(i => i.type != `Forest` && i.type != `Foxkid` && i.type != `Home`)
-        itesFlexbox.innerHTML = ''
+        itemsFlexBox.innerHTML = ''
         showProducts(uniqueArray)
     }
 }
 
+
 // Filter products by price
+import { getLinearGradient } from './constants.js';
 inputRange.addEventListener('input', () => {
     rangeValue.innerHTML = `Value: $${inputRange.value}`
-    inputRange.style.background = `linear-gradient(to right, #ba2525 0%, #ba2525 ${inputRange.value / (inputRange.getAttribute('max') / 100)}%, #b8b6bf ${inputRange.value / (inputRange.getAttribute('max') / 100)}%, #b8b6bf 100%)`
-    filterProductsByPrice(inputRange.value)
+    inputRange.style.background = getLinearGradient(inputRange);
+       filterProductsByPrice(inputRange.value)
 })
 async function filterProductsByPrice(value) {
     let data = await (await fetch('./json/products.json')).json();
     const uniqueArray = data.filter(i => i.price <= value)
-    itesFlexbox.innerHTML = ''
+    itemsFlexBox.innerHTML = ''
     showProducts(uniqueArray)
 }
 
@@ -73,7 +74,7 @@ function showProducts(array) {
     for (let i = 0; i < array.length; i++) {
         const product = document.createElement("div")
         product.classList.add('product')
-        itesFlexbox.appendChild(product)
+        itemsFlexBox.appendChild(product)
         const productImg = document.createElement("div")
         productImg.classList.add('product-image')
         product.appendChild(productImg)
@@ -115,71 +116,54 @@ function showProducts(array) {
 }
 
 //CART
-itesFlexbox.addEventListener('click', (event) => {
+itemsFlexBox.addEventListener('click', (event) => {
     if (event.target.parentElement.getAttribute('class') === 'add-btn') {
         pushToLocalStore(event)
+
     }
 })
 async function pushToLocalStore(event) {
     const idElem = event.target.parentElement.getAttribute('data-id')
     let data = await (await fetch('./json/products.json')).json();
-    const uniqueArray = data.filter(i => i.id === idElem)
-    uniqueArray[0].quantity = 1
+    const uniqueArray = [data.find(elem => elem.id === idElem)]
+    const targetType = uniqueArray[0]
+    targetType.quantity = 1
     if (localStorage.getItem("product") === null) {
-        localStorage.setItem("product", JSON.stringify([uniqueArray[0]]));
+        localStorage.setItem("product", JSON.stringify([targetType]));
     }
     else {
         let receivedItems = JSON.parse(localStorage.getItem("product"))
         const booleanArray = []
         receivedItems.forEach(e => {
-            if (e.id === uniqueArray[0].id) {
+            if (e.id === targetType.id) {
                 booleanArray.push('true')
             }
             else {
                 booleanArray.push('false')
             }
-            if (e.id === uniqueArray[0].id) {
+            if (e.id === targetType.id) {
                 e.quantity++
                 localStorage.setItem("product", JSON.stringify(receivedItems));
             }
 
         })
         if (!booleanArray.includes('true')) {
-            receivedItems.push(uniqueArray[0])
+            receivedItems.push(targetType)
             localStorage.setItem("product", JSON.stringify(receivedItems));
         }
     }
+    quantityProductsRefresh()
 }
 
 buttons.addEventListener('click', (event) => {
-    if (event.target.classList[0] === 'type-button' || event.target.classList[1] === 'type-button') {
-        if (event.target.classList[1] === 'type-forest') {
-            reColorBtn()
-            event.target.classList.remove('type-button')
-            event.target.classList.add('type-button-checked')
-        }
-        if (event.target.classList[1] === 'type-home') {
-            reColorBtn()
-            event.target.classList.remove('type-button')
-            event.target.classList.add('type-button-checked')
-        }
-        if (event.target.classList[1] === 'type-all') {
-            reColorBtn()
-            event.target.classList.remove('type-button')
-            event.target.classList.add('type-button-checked')
-        }
-        if (event.target.classList[1] === 'type-foxkid') {
-            reColorBtn()
-            event.target.classList.remove('type-button')
-            event.target.classList.add('type-button-checked')
-        }
-        if (event.target.classList[1] === 'type-other') {
-            reColorBtn()
-            event.target.classList.remove('type-button')
-            event.target.classList.add('type-button-checked')
-        }
+    const firstTargetType = event.target.classList[0];
+    const secondTargetType = event.target.classList[1];
+    if (firstTargetType === 'type-button' || secondTargetType === 'type-button') {
+        reColorBtn();
+        event.target.classList.remove('type-button');
+        event.target.classList.add('type-button-checked');
     }
-})
+});
 
 function reColorBtn() {
     const buttonsAll = document.querySelectorAll('.type-button-checked')
@@ -187,9 +171,9 @@ function reColorBtn() {
         btn.classList.remove('type-button-checked')
         btn.classList.add('type-button')
         if(btn.classList[1] === 'type-button'){
-            const x = btn.classList[0]
-            btn.classList.remove(x)
-            btn.classList.add(x)
+            const targetBtn = btn.classList[0]
+            btn.classList.remove(targetBtn)
+            btn.classList.add(targetBtn)
         }
     });
 }
