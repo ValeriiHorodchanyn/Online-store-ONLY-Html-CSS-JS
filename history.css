@@ -1,0 +1,145 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap");
+.header {
+  position: static;
+  background: transparent;
+}
+.link {
+  color: black;
+}
+.link:after {
+  background-color: #000000;
+}
+.first-text-img-block {
+  display: flex;
+}
+.second-text-img-block {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-bottom: 30px;
+}
+.text-field {
+  margin-top: 30px;
+}
+.second-text-img-block .text-field {
+  margin-left: 40px;
+}
+.first-text-img-block .text-field {
+  margin-right: 40px;
+}
+.header-text-field {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+.paragraph-text-field {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  color: rgba(72, 72, 72, 1);
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.img-field {
+  margin-top: 30px;
+}
+.img-field-img {
+  max-width: 469px;
+  width: 30vw;
+}
+.history-color{
+  color: rgb(196, 75, 0);
+}
+@media (min-width: 1600px) {
+  .header-text-field {
+    font-size: 30px;
+  }
+  .paragraph-text-field {
+    font-size: 22px;
+    line-height: 2;
+  }
+}
+@media (max-width: 1300px) {
+  .header-text-field {
+    font-size: 20px;
+  }
+  .paragraph-text-field {
+    font-size: 17px;
+    line-height: 1.2;
+  }
+}
+@media (max-width: 1000px) {
+  .header-text-field {
+    font-size: 18px;
+  }
+  .paragraph-text-field {
+    font-size: 16px;
+    line-height: 1;
+  }
+  .img-field {
+    margin-top: 50px;
+  }
+}
+@media (max-width: 800px) {
+  .header-text-field {
+    font-size: 24px;
+  }
+  .paragraph-text-field {
+    font-size: 18px;
+    line-height: 1.2;
+  }
+  .img-field {
+    margin-top: 50px;
+  }
+  .first-text-img-block {
+    display: flex;
+    flex-direction: column;
+  }
+  .second-text-img-block {
+    display: flex;
+    flex-direction: column;
+  }
+  .second-text-img-block .text-field {
+    margin-left: 0px;
+  }
+  .first-text-img-block .text-field {
+    margin-right: 0px;
+  }
+  .img-field {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+  }
+  .img-field-img {
+    width: 80%;
+  }
+}
+@media (max-width: 600px) {
+  .header{
+    position: fixed;
+    background: white;
+    top:0;
+  }
+  .header-menu{
+    top:0;
+  }
+  .link {
+    color: white;
+  }
+  .link:after {
+    background-color: white;
+  }
+  .img-field-img {
+    width: 100%;
+  }
+  .way-description {
+    font-size: 14px;
+  }
+  .page-header {
+    font-size: 40px;
+  }
+  .history-first-section{
+    margin-top: 50px;
+  }
+}

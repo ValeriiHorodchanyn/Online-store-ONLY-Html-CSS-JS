@@ -1,0 +1,82 @@
+[
+{
+    "id": "001",
+    "name": "Red fox",
+    "rating": 5,
+    "price": 120,
+    "image": "img/foxes/red3.jpg",
+    "type": "Forest"
+},
+{
+    "id": "002",
+    "name": "Kit fox",
+    "rating": 5,
+    "price": 110,
+    "image": "img/foxes/kit4.jpg",
+    "type": "Forest"
+},
+{
+    "id": "003",
+    "name": "Fennec fox",
+    "rating": 5,
+    "price": 100,
+    "image": "img/foxes/fennec3.jpg",
+    "type": "Home"
+},
+{
+    "id": "004",
+    "name": "Fox kid",
+    "rating": 5,
+    "price": 50,
+    "image": "img/foxes/foxkid.jpg",
+    "type": "Foxkid"
+},
+{
+    "id": "005",
+    "name": "Arctic fox",
+    "rating": 5,
+    "price": 85,
+    "image": "img/foxes/arctic2.jpg",
+    "type": "Forest"
+},
+{
+    "id": "006",
+    "name": "Fox kid",
+    "rating": 5,
+    "price": 45,
+    "image": "img/foxes/foxkid2.jpg",
+    "type": "Foxkid"
+},
+{
+    "id": "007",
+    "name": "Small Fennec",
+    "rating": 5,
+    "price": 55,
+    "image": "img/foxes/fennec2.jpg",
+    "type": "Foxkid"
+},
+{
+    "id": "008",
+    "name": "Arctic fox",
+    "rating": 5,
+    "price": 130,
+    "image": "img/foxes/arctic3.jpg",
+    "type": "Forest"
+},
+{
+    "id": "009",
+    "name": "Dangerous fox",
+    "rating": 5,
+    "price": 1000,
+    "image": "img/foxes/famous.jpg",
+    "type": "Special"
+},
+{
+    "id": "010",
+    "name": "Strange fox",
+    "rating": 5,
+    "price": 0,
+    "image": "img/foxes/strange.jpg",
+    "type": "Strange"
+}
+]
